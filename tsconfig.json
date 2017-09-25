@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "importHelpers": true,
+    "outDir": "lib",
+    "declaration": true,
+    "declarationDir": "dist",
+    "baseUrl": "source",
+    "lib": [
+      "es2015"
+    ]
+  },
+  "includes": [
+    "source"
+  ],
+  "exclude": [
+    "node_modules",
+    "tests"
+  ]
+}

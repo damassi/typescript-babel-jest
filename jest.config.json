@@ -1,0 +1,14 @@
+{
+  "testRegex": "/tests/.*\\.test\\.ts$",
+  "transform": {
+    "^.+\\.ts$": "dist/index.js"
+  },
+	"transformIgnorePatterns": [
+		"/node_modules/"
+  ],
+  "bail": true,
+  "modulePaths": ["source"],
+  "collectCoverageFrom": [
+    "source/**/*.js"
+  ]
+}

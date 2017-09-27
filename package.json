@@ -1,8 +1,7 @@
 {
 	"name": "typescript-babel-jest",
 	"version": "2.0.0",
-	"description": "Transpile TS to ES6 to ES5",
-	"types": "dist/index.d.ts",
+	"description": "Transpile TS -> ES6 -> ES5",
 	"main": "dist/index.js",
 	"author": "Pavel Lozinsky <lozinsky@protonmail.com> (http://github.com/lozinsky)",
 	"license": "MIT",
@@ -18,32 +17,30 @@
 		"type": "git",
 		"url": "https://github.com/lozinsky/typescript-babel-jest"
 	},
-	"homepage": "https://github.com/lozinsky/typescript-babel-jest",
+	"homepage": "https://github.com/lozinsky/typescript-babel-jest#readme",
 	"scripts": {
-		"build": "tsc && rollup -c",
-		"prebuild": "rimraf dist lib",
+		"build": "rollup -c",
+		"prebuild": "rimraf dist",
 		"test": "jest --config jest.config.json --no-cache",
 		"pretest": "npm run build",
 		"coverage": "npm test -- --coverage",
 		"precoverage": "rimraf coverage",
-		"watch": "npm test -- --watchAll",
+		"watch": "npm test -- --watch",
 		"lint": "tslint --type-check --project tsconfig.json source/**",
-		"prepublishOnly": "npm run build",
-    "travis": "npm run lint && npm run build",
-		"coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+		"prepublishOnly": "npm run build"
 	},
 	"files": [
 		"dist"
 	],
 	"devDependencies": {
+		"@types/jest": "21.1.1",
 		"@types/node": "8.0.30",
-		"coveralls": "2.13.1",
-		"jest-cli": "21.1.0",
+		"jest-cli": "21.2.0",
 		"rimraf": "2.6.2",
 		"rollup": "0.50.0",
 		"rollup-plugin-filesize": "1.4.2",
 		"rollup-plugin-includepaths": "0.2.2",
-		"rollup-plugin-node-resolve": "3.0.0",
+		"rollup-plugin-typescript2": "0.5.2",
 		"tslint": "5.7.0"
 	},
 	"dependencies": {

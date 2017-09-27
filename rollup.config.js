@@ -1,8 +1,9 @@
 import fileSize from 'rollup-plugin-filesize';
 import includePaths from 'rollup-plugin-includepaths';
+import typescript from 'rollup-plugin-typescript2';
 
 export default {
-    input: 'lib/index.js',
+    input: 'source/index.ts',
     output: {
         file: 'dist/index.js',
         format: 'cjs',
@@ -11,9 +12,9 @@ export default {
         "babel-jest",
         "tsconfig",
         "typescript",
-        "tslib",
     ],
     plugins: [
+        typescript(),
         includePaths({
             paths: ['lib'],
         }),

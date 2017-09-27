@@ -1,8 +1,24 @@
-sudo: required
 language: node_js
+
+notifications:
+    email:
+        on_success: never
+        on_failure: change
+
 node_js: stable
-before_install: npm i -g greenkeeper-lockfile
-before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+
+before_install:
+    - npm i -g greenkeeper-lockfile coveralls
+
+before_script:
+    - greenkeeper-lockfile-update
+
+after_script:
+    - cat ./coverage/lcov.info | coveralls
+    - greenkeeper-lockfile-upload
+
 install: npm i
-script: npm run travis
+
+script:
+    - npm run lint
+    - npm run coverage

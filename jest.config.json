@@ -1,14 +1,17 @@
 {
   "testRegex": "/tests/.*\\.test\\.ts$",
   "transform": {
-    "^.+\\.ts$": "dist/index.js"
+    "^.+\\.ts$": "<rootDir>/dist"
   },
-	"transformIgnorePatterns": [
-		"/node_modules/"
-  ],
   "bail": true,
   "modulePaths": ["source"],
   "collectCoverageFrom": [
-    "source/**/*.js"
+    "source/**/*.ts",
+    "!source/types/**/*"
+  ],
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js"
   ]
 }

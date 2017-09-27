@@ -1,9 +1,5 @@
-import process, { preprocess, IOptions } from 'main/process';
+import { process, preprocess } from 'main';
 
 export default {
     process: preprocess(process),
-};
-
-export {
-    IOptions,
 };

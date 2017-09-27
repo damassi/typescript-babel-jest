@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
+    "target": "es2015",
+    "module": "commonjs",
     "noImplicitAny": true,
     "moduleResolution": "node",
     "strictNullChecks": true,
@@ -11,19 +11,16 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importHelpers": true,
-    "outDir": "lib",
-    "declaration": true,
-    "declarationDir": "dist",
     "baseUrl": "source",
     "lib": [
       "es2015"
     ]
   },
   "includes": [
-    "source"
+    "source",
+    "tests"
   ],
   "exclude": [
-    "node_modules",
-    "tests"
+    "node_modules"
   ]
 }

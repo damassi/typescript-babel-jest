@@ -1,7 +1,6 @@
-[![Build Status](https://img.shields.io/travis/lozinsky/typescript-babel-jest/master.svg?style=flat-square)](https://travis-ci.org/lozinsky/typescript-babel-jest)
+[![build status](https://img.shields.io/travis/lozinsky/typescript-babel-jest/master.svg?style=flat-square)](https://travis-ci.org/lozinsky/typescript-babel-jest)
 [![npm version](https://img.shields.io/npm/v/typescript-babel-jest.svg?style=flat-square)](https://www.npmjs.com/package/typescript-babel-jest)
-[![Dependencies Status](https://david-dm.org/lozinsky/typescript-babel-jest/status.svg?style=flat-square)](https://david-dm.org/lozinsky/typescript-babel-jest)
-[![DevDependencies Status](https://david-dm.org/lozinsky/typescript-babel-jest/dev-status.svg?style=flat-square)](https://david-dm.org/lozinsky/typescript-babel-jest?type=dev)
+[![coverage](https://img.shields.io/coveralls/lozinsky/typescript-babel-jest/master.svg?style=flat-square)](https://coveralls.io/github/lozinsky/typescript-babel-jest?branch=master)
 
 # typescript-babel-jest
 

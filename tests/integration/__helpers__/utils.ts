@@ -48,7 +48,7 @@ const fileExists = (filePath: string) => {
 
 const makeTemplate = (str: string): ((values?: Array<any>) => string) => {
     return (values?: Array<any>) => {
-        return str.replace(/\$(\d+)/g, (match, n) => {
+        return str.replace(/\$(\d+)/g, (_, n) => {
             if (!Array.isArray(values)) {
                 throw new Error('Array of values must be passed to the template.');
             }

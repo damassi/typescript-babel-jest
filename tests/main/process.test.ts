@@ -1,35 +1,76 @@
-jest
-    .mock('typescript', () => ({
-        transpile: jest.fn(() => 'transpile'),
-    }))
-    .mock('babel-jest', () => ({
-        process: jest.fn(() => 'process'),
-    }))
-    .mock('utils/config', () => ({
-        default: jest.fn(() => ({
-            compilerOptions: 'compilerOptions',
-        })),
-    }));
+jest.mock('main/transpilers', () => ({
+    default: {
+        typescript: jest.fn(() => 'typescript'),
+        babel: jest.fn(() => 'babel'),
+    },
+}));
 
-import { process } from 'main';
-import { Source, Path, loadConfig } from 'utils';
+import process from 'main/process';
+import transpilers from 'main/transpilers';
 
-const input = 'input';
+const source: any = {
+    apply: jest.fn(() => 'apply'),
+};
 const cwd = 'cwd';
-const source = new Source(input);
+
+afterAll(jest.clearAllMocks);
 
 describe('typescript', () => {
-    const path = new Path('name');
+    const path = {
+        isJavaScript: false,
+        isTypeScript: true,
+        file: 'file',
+    };
+    const result = process(source, path, cwd);
 
-    process(source, path, cwd);
+    test('should call apply method with arguments', () => {
+        expect(source.apply).toBeCalledWith([true, 'typescript'], [true, 'babel']);
+    });
+
+    test('should returns result of apply', () => {
+        expect(result).toBe('apply');
+    });
+
+    test('typescript transpiler should be called', () => {
+        expect(transpilers.typescript).toBeCalledWith({
+            cwd,
+            file: path.file,
+        });
+    });
+
+    test('babel transpiler should be called', () => {
+        expect(transpilers.babel).toBeCalledWith({
+            file: 'file.js',
+        });
+    });
 });
 
 describe('javascript', () => {
-    const path = new Path('name');
+    const path = {
+        isJavaScript: true,
+        isTypeScript: false,
+        file: 'file',
+    };
+    const result = process(source, path, cwd);
 
-    process(source, path, cwd);
-});
+    test('should call apply method with arguments', () => {
+        expect(source.apply).toBeCalledWith([false, 'typescript'], [true, 'babel']);
+    });
 
-test('should call loadConfig with cwd', () => {
-    expect(loadConfig).toBeCalledWith(cwd);
+    test('typescript transpiler should not be called', () => {
+        expect(transpilers.typescript).toBeCalledWith({
+            cwd,
+            file: path.file,
+        });
+    });
+
+    test('babel transpiler should be called', () => {
+        expect(transpilers.babel).toBeCalledWith({
+            file: 'file.js',
+        });
+    });
+
+    test('should returns result of apply', () => {
+        expect(result).toBe('apply');
+    });
 });

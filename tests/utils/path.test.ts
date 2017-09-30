@@ -24,7 +24,7 @@ test('should detect typescript by ts file extension', () => {
 
     expect(path.isJavaScript).toBeFalsy();
     expect(path.isTypeScript).toBeTruthy();
-    expect(path.file).toBe('file.js');
+    expect(path.file).toBe(name);
 });
 
 test('should detect typescript by tsx file extension', () => {
@@ -33,5 +33,5 @@ test('should detect typescript by tsx file extension', () => {
 
     expect(path.isJavaScript).toBeFalsy();
     expect(path.isTypeScript).toBeTruthy();
-    expect(path.file).toBe('file.js');
+    expect(path.file).toBe(name);
 });

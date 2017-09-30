@@ -1,6 +1,6 @@
 jest.mock('utils');
 
-import { preprocess } from 'main';
+import preprocess from 'main/preprocess';
 import { Source, Path } from 'utils';
 
 function getInstance(val: any) {

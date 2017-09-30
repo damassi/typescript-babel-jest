@@ -1,29 +1,21 @@
-const FAKE_NAME = 'file.js';
-
 export default class Path {
-    readonly name: string;
+    readonly file: Global.TFile;
 
-    constructor(name: string) {
-        this.name = name;
+    constructor(file: Global.TFile) {
+        this.file = file;
     }
 
     get isTypeScript() {
-        const { name } = this;
+        const { file } = this;
 
-        return name.endsWith('.ts')
-            || name.endsWith('.tsx');
+        return file.endsWith('.ts')
+            || file.endsWith('.tsx');
     }
 
     get isJavaScript() {
-        const { name } = this;
+        const { file } = this;
 
-        return name.endsWith('.js')
-            || name.endsWith('.jsx');
-    }
-
-    get file() {
-        return this.isJavaScript
-            ? this.name
-            : FAKE_NAME;
+        return file.endsWith('.js')
+            || file.endsWith('.jsx');
     }
 }

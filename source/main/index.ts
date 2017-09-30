@@ -1,2 +1,4 @@
-export { default as preprocess } from './preprocess';
-export { default as process } from './process';
+import process from './process';
+import preprocess from './preprocess';
+
+export default preprocess(process);

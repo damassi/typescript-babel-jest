@@ -1,1 +1,1 @@
-export { default as process } from './main';
+export { default as process } from 'main';
